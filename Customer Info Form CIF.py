@@ -40,17 +40,17 @@ print("\n")
 
 age = int(input("Age: ")) #This needs to be automated based on System date
 
-print("\n")
-
-
-perm_add_line1 = input("Permanent Address \nLine1: ")
+perm_add_line1 = input("Permanent Address: \nLine1: ")
 perm_add_line2 = input("Line2: ")
 perm_add_line3 = input("Line3: ")
 perm_town = input("Town / City: ")
+perm_pin = input("Pin Code: ")
 perm_state = input("State: ")
 perm_country = input("Country: ")
 
 time.sleep(2)
+
+print("\n")
 
 comm_add = input("Is communication address & permanent address different ? : (Y / N) : ")
 
@@ -59,20 +59,20 @@ if comm_add == "N":
     comm_add_line2 = perm_add_line2
     comm_add_line3 = perm_add_line3
     comm_town = perm_town
+    comm_pin = perm_pin
     comm_state = perm_state
     comm_country = perm_country
 
 else:
-    comm_add_line1 = input("Communication Address \nLine1: ")
+    comm_add_line1 = input("Communication Address: \nLine1: ")
     comm_add_line2 = input("Line2: ")
     comm_add_line3 = input("Line3: ")
     comm_town = input("Town / City: ")
+    comm_pin = input("Pin Code: ")
     comm_state = input("State: ")
     comm_country = input("Country: ")
 
-print("\n")
-
-mobnum = int(input("Mobile Number: ")) #Mobile number 
+mobnum = int(input("Mobile Number: ")) #Mobile number
 
 print("\n")
 
@@ -82,24 +82,51 @@ print("\n")
 
 time.sleep(5)
 
-
 #-----------------Modification Section--pd: Personal Details-----------------------------------------
 
+print("""
+-------------------------------------------------------------------------------------------------
+********************************** Verification of Details **************************************
+-------------------------------------------------------------------------------------------------
+      """)
+
+print("\n")
+
+print("Please review & confirm all the below details are correct.",sep="",end="\n")
+
 modify_pd = input("Please confirm if any modification in data is required: Y / N: ")
+
+mod_count=0
 
 if modify_pd == "Y" or modify_pd == "y" :
     
     ques_fname = input("Modification required in First Name ? Y / N: ")
     if ques_fname == "Y" or ques_fname == "y":
         fname = input("First Name: ")
+        mod_count +=1
+        print("\n")
 
     ques_mname = input("Modification required in Middle Name ? Y / N: ")
     if ques_mname == "Y" or ques_mname == "y":
         mname = input("Middle Name: ")
+        mod_count +=1
+        print("\n")
 
-    ques_lname = input("Modification required in Last Name? Y / N: ")
+    ques_lname = input("Modification required in Last Name ? Y / N: ")
     if ques_lname == "Y" or ques_lname == "y":
         lname = input("Last Name: ")
+        mod_count +=1
+        print("\n")
+
+    ques_dob = input("Modification required in Date of Birth ? Y / N: ")
+    if ques_dob == "Y" or ques_dob == "y":
+        date_birth = input("Date of Birth: (DD-MM-YYYY)\n")
+        mod_count +=1
+        print("\n")
+
+print("\n")
+
+print("**********************", "Count of Modifications: ", mod_count, "**********************")
 
 
     
@@ -114,39 +141,40 @@ if modify_pd == "Y" or modify_pd == "y" :
 #-----------------Modification Section-----------------------------------------------------------------
 
 #Code for Output data -- Start
-
+print("\n")
 # Design for Personal Details Section
 print(("|"+"+"*14+"-"*40+"+"*14+"|\n"),end="")
 print(("|"+" "*20+"PERSONAL INFORMATION SECTION"+" "*20+"|\n"),end="")
 print(("|"+"+"*14+"-"*40+"+"*14+"|\n"),end="")
 
-print("Thank you ",fname, mname, lname,sep=".",end=".\n")
+print("\n")
+
+print("Thank you ",fname, mname, lname,sep=" ",end=".\n")
 
 print("\n")
 
-print("Please review & confirm all the below details are correct.",sep="",end="\n")
+time.sleep(1)
+
+print("Date of Birth: ", date_birth,"\nAge: ", age,"years")
 
 time.sleep(1)
 
-print()
-
-print("Date of Birth: ", date_birth,"\n", "Age: ", age)
-
-time.sleep(1)
+print("\n")
 
 # Design for Address & Comm Details Section
 print(("|"+"+"*16+"-"*40+"+"*15+"|\n"),end="")
 print(("|"+" "*20+"ADDRESS & COMMUNICATION SECTION"+" "*20+"|\n"),end="")
 print(("|"+"+"*16+"-"*40+"+"*15+"|\n"),end="")
 
+print("\n")
 
-print(perm_add_line1,perm_add_line2,perm_add_line3,perm_town,perm_state,perm_country,sep="\n",end="|")
+print("Permanent Address",perm_add_line1,perm_add_line2,perm_add_line3,perm_town,perm_pin,perm_state,perm_country,sep="\n",end="|\n")
 
-print()
+print("\n")
 
 if comm_add != "N":
 
-    print(comm_add_line1,comm_add_line2,comm_add_line3,comm_town,comm_state,comm_country,sep="\n",end="|")
+    print("Communication Address",comm_add_line1,comm_add_line2,comm_add_line3,comm_town,comm_pin,comm_state,comm_country,sep="\n",end="\n")
 
     time.sleep(1)
 
@@ -155,15 +183,40 @@ else:
 
 time.sleep(1)
 
-print()
+print("Mobile Number: ",mobnum,end="\n")
 
-print("Mobile Number: ",mobnum)
+print("\n")
 
-print()
+print("Email Address: ",email,end="\n")
 
-print("Email Address: ",email)
+print("\n")
 
-print()
+
+# Design for Health Details Section
+print(("|"+"+"*16+"-"*40+"+"*15+"|\n"),end="")
+print(("|"+" "*20+"FAMILY & HEALTH DETAILS SECTION"+" "*20+"|\n"),end="")
+print(("|"+"+"*16+"-"*40+"+"*15+"|\n"),end="")
+
+print("\n")
+
+weight = int(input("Weight - in kgs: "))
+
+height = int(input("Height - in cms: "))
+
+height = height / 100 #Height to be divide by 100 got Body Mass Index (BMI).
+
+bmi = (weight / height)/height
+
+print("Body Mass Index: ",round(bmi))
+
+
+
+# Design for Health Details Section
+print(("|"+"+"*16+"-"*40+"+"*15+"|\n"),end="")
+print(("|"+" "*20+"FAMILY & HEALTH DETAILS SECTION"+" "*20+"|\n"),end="")
+print(("|"+"+"*16+"-"*40+"+"*15+"|\n"),end="")
+
+
 
 print("+"+30*"-"+"+")
 print(("|"+" "*30+"|\n")*1,end="")
