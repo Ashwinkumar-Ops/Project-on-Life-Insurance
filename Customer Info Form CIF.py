@@ -8,21 +8,32 @@ print("Session Date: ", today.strftime("%d-%m-%Y"))
 
 import time
 
-print("+"+30*"-"+"+")
-print(("|"+" "*30+"|\n")*1,end="")
-print(("|"+" "*6+"-"*18+" "*6+"|\n"),end="")
-print(("|"+" "*6+"SUN LIFE INSURANCE"+" "*6+"|\n"),end="")
-print(("|"+" "*6+"-"*18+" "*6+"|\n"),end="")
-print(("|"+" "*30+"|\n")*1,end="")
-print("+"+30*"-"+"+")
+print("""
+||||~-----------------------------------------------------------------------------------------ab~||||
+||||~********************SUN LIFE INSURANCE COMPANY PVT LTD*************************************~||||
+||||~-------------------------------------------------------------------------------------------~||||
+||||~-------------------------------------------------------------------------------------------~||||
+||||~********We Insure Life to Protect People You Love After You********************************~||||
+||||~-------------------------------------------------------------------------------------------~||||
+        """)
 
-# Design for Health Details Details Section
-print(("|"+"+"*16+"-"*40+"+"*15+"|\n"),end="")
-print(("|"+" "*20+"FAMILY & HEALTH DETAILS SECTION"+" "*20+"|\n"),end="")
-print(("|"+"+"*16+"-"*40+"+"*15+"|\n"),end="")
+# Design for APPLICATION FORM
+print("""
+||||~-------------------------------------------------------------------------------------------~||||
+||||~**************************** APPLICATION FORM *********************************************~||||
+||||~-------------------------------------------------------------------------------------------~||||
+        """)
 
 
-time.sleep(2)
+time.sleep(1)
+
+# Design for PERSONAL DETAILS SECTIONS Section
+print("""
+||||~-----------------------------------~||||
+||||~**PERSONAL DETAILS SECTION*********~||||
+||||~-----------------------------------~||||
+        """)
+
 
 print("\n")
 
@@ -34,11 +45,13 @@ lname = input("Last Name: ")
 
 print("\n")
 
-date_birth = input("Date of Birth: (DD-MM-YYYY)\n")
+date_birth = input("Date of Birth: (DD-MM-YYYY): ")
 
 print("\n")
 
-age = int(input("Age: ")) #This needs to be automated based on System date
+age = int(input("Age (N): ")) #This needs to be automated based on System date
+
+print("\n")
 
 perm_add_line1 = input("Permanent Address: \nLine1: ")
 perm_add_line2 = input("Line2: ")
@@ -48,13 +61,13 @@ perm_pin = input("Pin Code: ")
 perm_state = input("State: ")
 perm_country = input("Country: ")
 
-time.sleep(2)
+time.sleep(1)
 
 print("\n")
 
-comm_add = input("Is communication address & permanent address different ? : (Y / N) : ")
+comm_add = input("Is communication address & permanent address different ?\n(Y- To Enter different Comm. Address / N - For same address ) : ")
 
-if comm_add == "N":
+if comm_add == "N" or comm_add == "n":
     comm_add_line1 = perm_add_line1
     comm_add_line2 = perm_add_line2
     comm_add_line3 = perm_add_line3
@@ -71,8 +84,11 @@ else:
     comm_pin = input("Pin Code: ")
     comm_state = input("State: ")
     comm_country = input("Country: ")
+    print("\n")
 
-mobnum = int(input("Mobile Number: ")) #Mobile number
+print("\n")
+
+mobnum = int(input("Mobile Number (N): ")) #Mobile number
 
 print("\n")
 
@@ -80,7 +96,7 @@ email = input("Email Address: ") #Email Address
 
 print("\n")
 
-time.sleep(5)
+time.sleep(1)
 
 #-----------------Modification Section--pd: Personal Details-----------------------------------------
 
@@ -94,51 +110,55 @@ print("\n")
 
 print("Please review & confirm all the below details are correct.",sep="",end="\n")
 
+print("-----CONFIRM FOR ANY MODIFICATION IN PERSONAL DETAILS------")
+
 modify_pd = input("Please confirm if any modification in data is required: Y / N: ")
 
 mod_count=0
 
-if modify_pd == "Y" or modify_pd == "y" :
+
+while modify_pd == "Y" or modify_pd == "y" : #if modify_pd == "Y" or modify_pd == "y" :
     
     ques_fname = input("Modification required in First Name ? Y / N: ")
+
     if ques_fname == "Y" or ques_fname == "y":
         fname = input("First Name: ")
+        print("First Name:",fname)
         mod_count +=1
         print("\n")
 
     ques_mname = input("Modification required in Middle Name ? Y / N: ")
+
     if ques_mname == "Y" or ques_mname == "y":
         mname = input("Middle Name: ")
+        print("Middle Name:",mname)
         mod_count +=1
         print("\n")
 
     ques_lname = input("Modification required in Last Name ? Y / N: ")
+
     if ques_lname == "Y" or ques_lname == "y":
         lname = input("Last Name: ")
+        print("Last Name:",lname)
         mod_count +=1
         print("\n")
 
     ques_dob = input("Modification required in Date of Birth ? Y / N: ")
+
     if ques_dob == "Y" or ques_dob == "y":
         date_birth = input("Date of Birth: (DD-MM-YYYY)\n")
         mod_count +=1
         print("\n")
 
+    print("\n")
+
+    print("-----RECONFIRM FOR FURTHER MODIFICATION------")
+
+    modify_pd = input("Please confirm if any modification in data is required: Y / N: ")
+
 print("\n")
 
 print("**********************", "Count of Modifications: ", mod_count, "**********************")
-
-
-    
-    #x = input("Please provide a value for x: ")
-    #y = input("Please provide a value for y: ")
-
-    #print("Value of X is ",x ,"\nValue of Y is ",y)
-
-#else:
-    #print("Value of X is ",x ,"\nValue of Y is ",y)
-
-#-----------------Modification Section-----------------------------------------------------------------
 
 #Code for Output data -- Start
 print("\n")
@@ -212,11 +232,13 @@ print("Body Mass Index: ",round(bmi))
 
 
 # Design for Health Details Section
-print(("|"+"+"*16+"-"*40+"+"*15+"|\n"),end="")
-print(("|"+" "*20+"FAMILY & HEALTH DETAILS SECTION"+" "*20+"|\n"),end="")
-print(("|"+"+"*16+"-"*40+"+"*15+"|\n"),end="")
+print(("""
+|++++++++++++++++----------------------------------------+++++++++++++++|
+|                    FAMILY & HEALTH DETAILS SECTION                    |
+|++++++++++++++++----------------------------------------+++++++++++++++|
+""")
 
-
+print("\n")
 
 print("+"+30*"-"+"+")
 print(("|"+" "*30+"|\n")*1,end="")
