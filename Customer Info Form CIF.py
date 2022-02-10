@@ -43,6 +43,10 @@ fname = input("First Name: ")
 mname = input("Middle Name: ")
 lname = input("Last Name: ")
 
+name = (fname.capitalize()+" "+mname.capitalize()+"."+lname.capitalize())
+
+print("\nHello ",name,sep=" ",end=".\n")
+
 print("\n")
 
 date_birth = input("Date of Birth: (DD-MM-YYYY): ")
@@ -50,6 +54,64 @@ date_birth = input("Date of Birth: (DD-MM-YYYY): ")
 print("\n")
 
 age = int(input("Age (N): ")) #This needs to be automated based on System date
+
+print("\n")
+
+#-------------------Code added on 10/02/2022----------------------Ashwinkumar D Basari--------
+
+sex = input("Sex: \nM-Male / F-Female: ")
+sex = sex.upper()
+
+print("\n")
+
+mstat = str(input("Marital Status: \nS-Single / M-Married / O-Other: "))   ##Marital status
+mstat = mstat.upper()
+
+
+if mstat == "O" or mstat == "o":
+
+    if mstat == "O" or mstat == "o":
+        mstat = input("Please specify Marital Status: ")
+        mstat = mstat.upper()
+
+print("\n")
+
+salu = 0
+
+risk1 = "No Risk" #risk1 - Legal criteria for Marriage is not met
+
+if age <= 17 and mstat == "M" and sex == "F" or age <= 17 and mstat == "m" and sex == "f":
+    salu = "Miss"
+    risk1 = "risk1 - Female Life - Legal criteria for marriage is not met"
+
+elif age <= 17 and mstat == "M" and sex == "M" or age <= 17 and mstat == "m" and sex == "m":
+    salu = "Master"
+    risk1 = "risk1 - Male Life - Legal criteria for marriage is not met"
+
+elif age >= 18 and mstat == "M" and sex == "F":
+    salu = "Mrs"
+
+
+elif age >= 18 and mstat == "M" and sex == "M":
+    salu = "Mr"
+
+
+elif salu == 0:
+    salu = input("System should consider salutation based on Sex.\nY-Mr for Male & Mrs for Female ELSE N-To provide input from your end: ")
+    salu = salu.upper()
+
+    if salu == "Y":
+        if sex == "M":
+            salu = "Mr"
+
+        elif sex == "F":
+            salu = "Mrs"
+
+    elif salu == "N":
+        salu = input("Please provide desired salutation: ")
+        salu = salu.capitalize()
+
+#-------------------Code added on 10/02/2022----------------------Ashwinkumar D Basari--------
 
 print("\n")
 
@@ -169,13 +231,15 @@ print(("|"+"+"*14+"-"*40+"+"*14+"|\n"),end="")
 
 print("\n")
 
-print("Thank you ",fname, mname, lname,sep=" ",end=".\n")
+print("Applicants Name: ",salu,".",name,sep=" ",end="\n")
 
 print("\n")
 
 time.sleep(1)
 
 print("Date of Birth: ", date_birth,"\nAge: ", age,"years")
+
+print("Sex: ", sex,"\nMarital status: ", mstat)
 
 time.sleep(1)
 
@@ -231,12 +295,16 @@ print("Body Mass Index: ",round(bmi))
 
 
 
-# Design for Health Details Section
-print(("""
+# Design for Undersriting Details Section
+
+print("""
 |++++++++++++++++----------------------------------------+++++++++++++++|
-|                    FAMILY & HEALTH DETAILS SECTION                    |
+|                     UNDERWRITING DETAILS SECTION                      |
 |++++++++++++++++----------------------------------------+++++++++++++++|
 """)
+
+print("Age & Marriage Risk",risk1)
+
 
 print("\n")
 
