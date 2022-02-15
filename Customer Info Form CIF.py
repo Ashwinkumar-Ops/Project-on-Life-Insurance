@@ -55,6 +55,14 @@ print("\n")
 
 age = int(input("Age (N): ")) #This needs to be automated based on System date
 
+age_stat = "Nill"
+
+if age <= 17:
+    age_stat = "Minor"
+
+elif age > 17:
+    age_stat = "Major"
+
 print("\n")
 
 #-------------------Code added on 10/02/2022----------------------Ashwinkumar D Basari--------
@@ -283,16 +291,31 @@ print(("|"+"+"*16+"-"*40+"+"*15+"|\n"),end="")
 
 print("\n")
 
-weight = int(input("Weight - in kgs: "))
+weight = float(input("Weight - in kgs: "))
 
-height = int(input("Height - in cms: "))
+height = float(input("Height - in cms: "))
 
 height = height / 100 #Height to be divide by 100 got Body Mass Index (BMI).
 
 bmi = (weight / height)/height
 
-print("Body Mass Index: ",round(bmi))
+bmi = round(bmi,ndigits=2) #Modified on 14022022 - AB
 
+print("Body Mass Index: ",bmi)
+
+bmi_indi = "Nill"
+
+if bmi < 18:
+    bmi_indi = "Underweight"
+
+if bmi > 18 and bmi < 25:
+    bmi_indi = "Healthy"
+
+if bmi > 25 and bmi < 29.90:
+    bmi_indi = "Over-Weight"
+
+if bmi > 30.00:
+    bmi_indi = "Obese"
 
 
 # Design for Undersriting Details Section
@@ -303,7 +326,19 @@ print("""
 |++++++++++++++++----------------------------------------+++++++++++++++|
 """)
 
-print("Age & Marriage Risk",risk1)
+risksr = 0
+
+risksr += 1
+
+print(risksr,".Applicant is",age_stat) #Added on 14022022 - AB
+risksr += 1
+
+print(risksr,".Applicant Age is",age, "&","Marital status is", mstat, ".Hence Risk is",risk1) #Age_Marriage Risk
+risksr += 1
+
+print(risksr,".Body mass index is",bmi, ",applicant is",bmi_indi) #Added on 14022022 - AB
+risksr += 1
+
 
 
 print("\n")
