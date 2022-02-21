@@ -387,13 +387,20 @@ time.sleep(5)
 print("""
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ************************************************************************************************************************************************************************
-||                                                             EMPLOYMENT DETAILS SECTION                                                                             ||
+||                                                             ADDRESS & CONTACT DETAILS SECTION                                                                      ||
 ||                                                                                                                                                                    ||
 ||                                                                                                                                                                    ||
         """)
 
 
 #-------------------Code added on 10/02/2022----------------------Ashwinkumar D Basari--------
+
+
+print("""
+---------------------------------->
+              PERMANENT ADDRESS    >
+---------------------------------->
+        """)
 
 print("\n")
 
@@ -416,6 +423,14 @@ perm_country = perm_country.upper()
 
 print("\n")
 time.sleep(1)
+
+
+print("""
+---------------------------------->
+           COMMUNICATION ADDRESS    >
+---------------------------------->
+        """)
+
 
 comm_add = input("Is communication address & permanent address different ?\n(Y- To Enter different Comm. Address / N - For same address ) : ")
 
@@ -449,6 +464,13 @@ comm_country = perm_country.upper()
 print("\n")
 time.sleep(1)
 
+
+print("""
+---------------------------------->
+            OTHER CONTACT DETAILS  >
+---------------------------------->
+        """)
+
 mobnum = int(input("Mobile Number (N): ")) #Mobile number
 print("\n")
 time.sleep(1)
@@ -456,6 +478,230 @@ time.sleep(1)
 email = input("Email Address: ") #Email Address 
 print("\n")
 time.sleep(1)
+
+print("""
+||                                                                                                                                                                    ||
+||                                                                                                                                                                    ||
+||                                                              END OF SECTION                                                                                        ||
+************************************************************************************************************************************************************************
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        """)
+time.sleep(5)
+
+#------------------Coded addded on 21-02-2022---AB--------------------------------------
+
+
+print("""
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+************************************************************************************************************************************************************************
+||                                                           FAMILY HISTORY DETAILS SECTION                                                                           ||
+||                                                                                                                                                                    ||
+||                                                                                                                                                                    ||
+        """)
+
+
+fam_hist = []
+
+fam_sep = "|"
+
+fam_mem_num = 0
+
+liv_sta = ['Alive','Expired']
+
+###
+print("""
+---------------------------------->
+          FAMILY HISTROY - FATHER  >
+---------------------------------->
+        """)
+
+
+fam_mem_num += 1
+fam_hist.append(fam_mem_num)
+
+print("Family Member #",fam_mem_num)
+
+fam_mem_nam = input("Father's Name: ")
+fam_hist.append(fam_mem_nam)
+    
+fam_mem_fath = "Father"
+fam_hist.append(fam_mem_fath)
+
+fam_mem_age = input("Father Age: ")
+fam_hist.append(fam_mem_age)
+
+fam_mem_lifesta = int(input("Is Faily Member Alive?\n0-Yes\n1-No: "))
+
+if fam_mem_lifesta == 0:
+
+    fam_mem_sta = liv_sta[0]
+
+else:
+    fam_mem_sta = liv_sta[1]
+
+fam_hist.append(fam_mem_sta)
+
+if fam_mem_sta == "Alive":
+
+    fam_mem_furdea = input("Any existing medical condition: ")
+
+    fam_mem_dea = fam_mem_furdea
+
+elif fam_mem_sta == "Expired":
+
+    fam_mem_dea = input("Reason for death: ")
+
+fam_hist.append(fam_mem_dea)
+
+fam_hist.append(fam_sep)
+
+print(">> ",fam_hist)
+
+print("\n*****")
+
+time.sleep(2)
+
+###
+print("""
+---------------------------------->
+          FAMILY HISTROY - MOTHER  >
+---------------------------------->
+        """)
+
+fam_mem_num += 1
+fam_hist.append(fam_mem_num)
+
+print("Family Member #",fam_mem_num)
+
+fam_mem_nam = input("Mother's Name: ")
+fam_hist.append(fam_mem_nam)
+    
+fam_mem_moth = "Mother"
+fam_hist.append(fam_mem_moth)
+
+fam_mem_age = input("Mother Age: ")
+fam_hist.append(fam_mem_age)
+
+fam_mem_lifesta = int(input("Is Faily Member Alive?\n0-Yes\n1-No: "))
+
+if fam_mem_lifesta == 0:
+
+    fam_mem_sta = liv_sta[0]
+
+else:
+    fam_mem_sta = liv_sta[1]
+
+fam_hist.append(fam_mem_sta)
+
+if fam_mem_sta == "Alive":
+
+    fam_mem_furdea = input("Any existing medical condition: ")
+
+    fam_mem_dea = fam_mem_furdea
+
+elif fam_mem_sta == "Expired":
+
+    fam_mem_dea = input("Reason for death: ")
+
+fam_hist.append(fam_mem_dea)
+
+fam_hist.append(fam_sep)
+
+print(">> ",fam_hist)
+
+print("\n*****")
+
+time.sleep(2)
+
+###
+
+print("""
+---------------------------------->
+        FAMILY HISTROY - SIBLINGS  >
+---------------------------------->
+        """)
+
+fam_hist_qst = input("Do you wish to add other sibings details\nY-Yes or N-No : ")
+fam_hist_qst = fam_hist_qst.upper()
+
+fam_hist.insert(0,fam_sep)
+
+#print(fam_hist_qst)
+
+#print(type(fam_hist_qst))
+
+while fam_hist_qst != "N":
+
+    fam_mem_num += 1
+    fam_hist.append(fam_mem_num)
+
+    print("Family Member #",fam_mem_num)
+
+    fam_mem_nam = input("Family Members Name: ")
+    fam_hist.append(fam_mem_nam)
+    
+    fam_mem_rel = input("Family Members Relationship: ")
+    fam_hist.append(fam_mem_rel)
+
+    fam_mem_age = input("Family Members Age: ")
+    fam_hist.append(fam_mem_age)
+
+    fam_mem_lifesta = int(input("Is Faily Member Alive?\n0-Yes\n1-No: "))
+
+    if fam_mem_lifesta == 0:
+
+        fam_mem_sta = liv_sta[0]
+
+    else:
+        fam_mem_sta = liv_sta[1]
+
+    fam_hist.append(fam_mem_sta)
+
+# >> Details for Medical Condition if Alive / Reason for death incase of expired family member
+
+    if fam_mem_sta == "Alive":
+
+        fam_mem_furdea = input("Any existing medical condition: ")
+
+        fam_mem_dea = fam_mem_furdea
+
+    elif fam_mem_sta == "Expired":
+
+        fam_mem_dea = input("Reason for death: ")
+
+    fam_hist.append(fam_mem_dea)
+
+    fam_hist.append(fam_sep)
+
+    print(">> ",fam_hist)
+
+    print("\n*****")
+
+    fam_hist_qst = input("Do you wish to add other sibings details\nY-Yes or N-No : ")
+    fam_hist_qst = fam_hist_qst.upper()
+
+    #print(fam_hist_qst)
+
+    #print(type(fam_hist_qst))
+
+    print("\n*****")
+
+    time.sleep(2)
+       
+print(">> ",fam_hist)
+
+print(len(fam_hist))
+
+fh = 0
+
+for fh in range(len(fam_hist)):
+
+    if fh % 7 == 0:
+
+        fh1 = fh+7
+
+        print(fam_hist[fh:fh1])
+
 
 print("""
 ||                                                                                                                                                                    ||
@@ -625,6 +871,19 @@ print("\n")
 print("Annaul Income: Rs.",incomeamt)
 time.sleep(1)
 print("\n")
+
+
+print("Family History: ",len(fam_hist))
+
+fh = 0
+
+for fh in range(len(fam_hist)):
+
+    if fh % 7 == 0:
+
+        fh1 = fh+7
+
+        print(fam_hist[fh:fh1])
 
 
 #===================Code written===============================17022022-AB
